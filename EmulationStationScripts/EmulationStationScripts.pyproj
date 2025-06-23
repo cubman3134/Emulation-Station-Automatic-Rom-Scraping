@@ -4,10 +4,10 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7b2d7d89-1c4e-4946-87d4-48749afb348d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ESDEGameRomDownload.py</StartupFile>
+    <StartupFile>ESDEGameListDownload.py</StartupFile>
     <SearchPath>
     </SearchPath>
-    <WorkingDirectory>.</WorkingDirectory>
+    <WorkingDirectory>C:\Users\cubma\ES-DE\scripts\startup</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>EmulationStationScripts</Name>
     <RootNamespace>EmulationStationScripts</RootNamespace>

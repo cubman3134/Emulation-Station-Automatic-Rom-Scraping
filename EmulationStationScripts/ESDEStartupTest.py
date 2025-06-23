@@ -3,7 +3,7 @@ import sys
 from datetime import datetime
 
 f = open('c:\\temp\\logging.txt', 'a')
-f.write(datetime.now().strftime("%Y-%m-%d"))
+f.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 f.write('\n')
 f.write("app started up")
 f.write('\n')

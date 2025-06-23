@@ -2,11 +2,26 @@ import os.path
 import sys
 import requests
 import zipfile
+from datetime import datetime
 
 romPath = sys.argv[1]
 gameName = sys.argv[2]
 systemName = sys.argv[3]
 systemFullName = sys.argv[4]
+
+f = open('c:\\temp\\logging.txt', 'a')
+f.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+f.write('\n')
+f.write(romPath)
+f.write('\n')
+f.write(gameName)
+f.write('\n')
+f.write(systemName)
+f.write('\n')
+f.write(systemFullName)
+f.write('\n')
+f.write('\n')
+f.close()
 
 try:
     host = ""
@@ -32,7 +47,7 @@ try:
             with zipfile.ZipFile(zipName, 'r') as zipRef:
                 zipOutputDirectory = os.path.dirname(romPath)
                 zipRef.extractall(zipOutputDirectory)
-            os.remove(zipfile)
+            os.remove(zipName)
             #list_of_files = glob.glob('/path/to/folder/*') # * means all if need specific format then *.csv
             #latest_file = max(list_of_files, key=os.path.getctime)
             #os.rename(latest_file, romPath)
