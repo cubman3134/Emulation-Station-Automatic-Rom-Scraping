@@ -3,6 +3,13 @@ import sys
 import requests
 import zipfile
 from datetime import datetime
+from tqdm import tqdm
+import pygetwindow as gw
+import os
+import time
+import math
+
+os.system('title "ESDEGameRomDownload"')
 
 romPath = sys.argv[1]
 gameName = sys.argv[2]
@@ -24,6 +31,7 @@ f.write('\n')
 f.close()
 
 try:
+    gw.getWindowsWithTitle('ESDEGameRomDownload')[0].activate()
     host = ""
     url = ""
     with open(romPath, 'r') as file:
@@ -37,25 +45,37 @@ try:
         url = allLines[1]
     os.remove(romPath)
     if host == "myrient":
-        response = requests.get(url)
-        #zipName = os.path.join(os.path.dirname(romPath), "input.zip")
-        zipName = romPath + ".zip"
-        #os.rename(romPath, zipName)
-        if response.status_code == 200:
+        with requests.get(url, stream=True) as requestInfo:
+            zipName = romPath
+            if not zipName.endswith(".zip"):
+                zipName += ".zip"
             with open(zipName, "wb") as file:
-                file.write(response.content)
+                pbar = tqdm(unit="B", unit_scale=True, unit_divisor=1024, total=int(requestInfo.headers['Content-Length']))
+                pbar.clear()
+                for chunk in requestInfo.iter_content(chunk_size=1024):
+                    if chunk:
+                        pbar.update(len(chunk))
+                        file.write(chunk)
+                pbar.close()
+        if not romPath.endswith(".zip"):
             with zipfile.ZipFile(zipName, 'r') as zipRef:
                 zipOutputDirectory = os.path.dirname(romPath)
                 zipRef.extractall(zipOutputDirectory)
             os.remove(zipName)
+        #os.rename(romPath, zipName)
+        if requestInfo.status_code == 200:
+            
             #list_of_files = glob.glob('/path/to/folder/*') # * means all if need specific format then *.csv
             #latest_file = max(list_of_files, key=os.path.getctime)
             #os.rename(latest_file, romPath)
             print(f"File '{romPath}' downloaded successfully.")
 
         else:
-            print(f"Failed to download file. Status code: {response.status_code}")
+            print(f"Failed to download file. Status code: {requestInfo.status_code}")
 except FileNotFoundError:
     print("Error: The file 'your_file.txt' was not found.")
 except Exception as e:
     print(f"An error occurred: {e}")
+    time.sleep(5)
+
+gw.getWindowsWithTitle('ES-DE')[0].activate()
