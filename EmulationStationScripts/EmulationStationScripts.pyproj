@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7b2d7d89-1c4e-4946-87d4-48749afb348d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ESDEGameListDownload.py</StartupFile>
+    <StartupFile>RetroGameTalkScraper.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>C:\Users\cubma\ES-DE\scripts\startup</WorkingDirectory>
@@ -16,7 +16,9 @@
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
     <Environment>
     </Environment>
-    <CommandLineArguments>"C:/Users/cubma/OneDrive/Desktop/Emulation/Roms/nes/10-Yard Fight (Japan).nes" "10-Yard Fight (Japan)" "nes" "Nintendo Entertainment System"</CommandLineArguments>
+    <CommandLineArguments>
+    </CommandLineArguments>
+    <InterpreterId>MSBuild|env1|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,6 +31,18 @@
   <ItemGroup>
     <Compile Include="ESDEGameListDownload.py" />
     <Compile Include="ESDEGameRomDownload.py" />
+    <Compile Include="RetroGameTalkScraper.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env1\">
+      <Id>env1</Id>
+      <Version>3.13</Version>
+      <Description>env1 (Python 3.13 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
