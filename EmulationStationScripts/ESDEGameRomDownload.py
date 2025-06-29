@@ -39,12 +39,12 @@ try:
         if firstLine != "ESDE Placeholder\n":
             sys.exit(0)
         allLines = file.read().splitlines()
-        if len(allLines) < 3:
+        if len(allLines) < 2:
             sys.exit(0)
         host = allLines[0]
         url = allLines[1]
     os.remove(romPath)
-    if host == "myrient":
+    if host != "":
         with requests.get(url, stream=True) as requestInfo:
             zipName = romPath
             if not zipName.endswith(".zip"):
