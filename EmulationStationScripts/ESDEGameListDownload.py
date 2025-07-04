@@ -116,6 +116,8 @@ f.close()
 for itemToScrape in itemsToScrape:
     folderPath = os.path.abspath(os.path.join(currentDirectory, itemToScrape.directoryPath))
     for filePath in os.listdir(folderPath):
+        scrapeFileName = Path(filePath).stem
+        scrapeSite = scrapeFileName.split('_')[0]
         with open(filePath, 'r') as fileInfo:
             for line in fileInfo:
                 romInfo = line.split('\t')
@@ -127,7 +129,7 @@ for itemToScrape in itemsToScrape:
                     continue
                 systemInfo = systemLinks[system]
                 fileToWrite = os.path.join(romsPath, system, gameName + systemInfo.fileType)
-                TryWriteRomFile(fileToWrite, "Custom", url)
+                TryWriteRomFile(fileToWrite, scrapeSite, url)
 
 for subdir, dirs, files in os.walk(romsPath):
     if subdir == romsPath:

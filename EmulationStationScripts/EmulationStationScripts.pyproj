@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7b2d7d89-1c4e-4946-87d4-48749afb348d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ESDEGameRomDownload.py</StartupFile>
+    <StartupFile>ROMHackingScraper.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>C:\Users\cubma\ES-DE\scripts\startup</WorkingDirectory>
@@ -31,6 +31,7 @@
     <Compile Include="ESDEGameListDownload.py" />
     <Compile Include="ESDEGameRomDownload.py" />
     <Compile Include="RetroGameTalkScraper.py" />
+    <Compile Include="ROMHackingScraper.py" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="..\..\..\..\ES-DE\scripts\startup\env\">
