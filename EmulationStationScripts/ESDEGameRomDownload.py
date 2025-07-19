@@ -65,6 +65,8 @@ try:
     if host == "ROMHacking":
         splitPath = url.split("/")
         downloadPath = "https://www.romhacking.net/download/" + splitPath[-2] +  "/" + splitPath[-1]
+        #todo need google drive/github support for games that link to external site...
+        #take the rom file/patch file from one of those external sites and feed it to https://www.romhacking.net/patch/
     if host == "RetroGameTalk":
         webdriverOptions = webdriver.ChromeOptions()
         webdriverOptions.add_argument("user-data-dir=C:/Temp/User Data")
@@ -94,6 +96,8 @@ try:
                 break
     with requests.get(url, stream=True) as requestInfo:
         zipName = romPath
+        if requestInfo.url != url:
+            raise Exception("We can't support redirects at the moment. Please manually navigate to " + url)
         if not zipName.endswith(".zip"):
             zipName += ".zip"
         with open(zipName, "wb") as file:

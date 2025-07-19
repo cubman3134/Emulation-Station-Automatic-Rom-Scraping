@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7b2d7d89-1c4e-4946-87d4-48749afb348d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ROMHackingScraper.py</StartupFile>
+    <StartupFile>RetroGameTalkScraper.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>C:\Users\cubma\ES-DE\scripts\startup</WorkingDirectory>

@@ -18,8 +18,10 @@ class WebScrapeInfo:
         self.checkForTextInRomName = checkForTextInRomName
         self.fileName = fileName
 
-itemsToScrape = [WebScrapeInfo("https://retrogametalk.com/repository/translations/", "english", "TranslationUrls.txt"),
-                 WebScrapeInfo("https://retrogametalk.com/repository/romhacks/", "", "RomHackUrls.txt")]
+
+baseUrl = "https://retrogametalk.com"
+itemsToScrape = [WebScrapeInfo(baseUrl + "/repository/translations/", "english", "RetroGameTalk_TranslationUrls.txt"),
+                 WebScrapeInfo(baseUrl + "/repository/romhacks/", "", "RetroGameTalk_RomHackUrls.txt")]
 
 webdriverOptions = webdriver.ChromeOptions()
 webdriverOptions.add_argument("user-data-dir=C:/Temp/User Data")
@@ -43,36 +45,43 @@ def GetBeautifulSoupInfo(isPageSource, url):
     time.sleep(0.5) # don't flood the scraper
     return soup
 
+def GetNextButton(soup: BeautifulSoup):
+    return soup.find(class_="next page-numbers")
+
+def GetNextButtonUrl(buttonItem: BeautifulSoup):
+    return buttonItem['href']
+
+def GetGameItems(soup: BeautifulSoup):
+    return soup.find_all(class_="game-container")
+
+def GetGameUrlFromGameItem(gameItem: BeautifulSoup):
+    return gameItem.find(name="a")['href']
+
+def GetGamePlatformFromGameItem(gameItem: BeautifulSoup):
+    return gameItem.find(class_="console").text
+
+def GetGameNameFromGameItem(gameItem: BeautifulSoup):
+    return gameItem.find(class_="game-title").text
+
 for itemToScrape in itemsToScrape:
     nextButtonExists = True
+    if os.path.exists(itemToScrape.fileName):
+        os.remove(itemToScrape.fileName)
     webDriverInfo.get(itemToScrape.url)
     while nextButtonExists:
+        time.sleep(1)
         soup = GetBeautifulSoupInfo(True, webDriverInfo.page_source)
-        gamesOnPage = soup.find_all(class_="game-container")
-        nextButton = soup.find(class_="next page-numbers")
+        gamesOnPage = GetGameItems(soup)
+        nextButton = GetNextButton(soup)
         for gameOnPage in gamesOnPage:
-            linkItem = gameOnPage.find(name="a")
-            webDriverInfo.get(linkItem['href'])
-            showLinksButton = webDriverInfo.find_element(by=By.CLASS_NAME, value="acf-get-content-button")
-            showLinksButton.click()
-            time.sleep(0.5) # give the page time to load
-            childSoup = GetBeautifulSoupInfo(True, webDriverInfo.page_source)
-            platformInfo = childSoup.find(itemprop="gamePlatform operatingSystem").text
-            infoTableItems = childSoup.find(class_="rom-info").find(name="tbody").findAll(name="tr")
-            downloadLinksTable = childSoup.find(class_="download-links table")
-            if downloadLinksTable is None:
-                continue
-            downloadLinks = downloadLinksTable.find_all(name="a")
-            for downloadLink in downloadLinks:
-                fileNameWithExtension = downloadLink.text
-                if fileNameWithExtension is None or not itemToScrape.checkForTextInRomName.lower() in fileNameWithExtension.lower():
-                    continue
-                downloadUrl = downloadLink['href']
-                with open(itemToScrape.fileName, "a+") as romFile:
-                    fileNameWithoutExtension, fileExtension = os.path.splitext(fileNameWithExtension)
-                    romFile.write(downloadUrl + "\t" + fileNameWithoutExtension + "\t" + platformInfo + "\n")
+            downloadUrl = GetGameUrlFromGameItem(gameOnPage)
+            platformInfo = GetGamePlatformFromGameItem(gameOnPage)
+            gameName = GetGameNameFromGameItem(gameOnPage)
+            with open(itemToScrape.fileName, "a+", encoding="utf-8") as romFile:
+                romFile.write(downloadUrl + "\t" + gameName + "\t" + platformInfo + "\n")
         if nextButton is None:
             nextButtonExists = False
         else:
-            webDriverInfo.get(nextButton['href'])
+            webDriverInfo.get(GetNextButtonUrl(nextButton))
     
+sys.exit(0)
