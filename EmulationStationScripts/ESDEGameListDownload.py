@@ -14,10 +14,11 @@ class LocalFileScrapingInfo:
         self.directoryPath = directoryPath
 
 class SystemInfo:
-    def __init__(self, url, fileType, emulatorAliases):
+    def __init__(self, url, fileType, emulatorAliases, zipAllowed):
         self.url = url
         self.fileType = fileType
         self.emulatorAliases = emulatorAliases
+        self.zipAllowed = zipAllowed
 
 #systemName = sys.argv[1]
 #systemFullName = sys.argv[2]
@@ -37,8 +38,8 @@ itemsToScrape = [LocalFileScrapingInfo("RomHacks", "../../settings/RomHackFiles"
 
 #all files at https://myrient.erista.me/files/No-Intro/
 systemLinks = {
-        "3do": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/3DO/3DO%20Interactive%20Multiplayer/Games/", ".bin", ['3DO']),
-        "atari2600": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%202600/", ".zip", ['2600']),
+        "3do": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/3DO/3DO%20Interactive%20Multiplayer/Games/", ".bin", ['3DO'], False),
+        #"atari2600": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%202600/", ".zip", ['2600'], True),
         #"atari5200": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%205200/", ""),
         #"atari7800": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%207800/", "", ['7800']),
         #"atarijaguar": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%20Jaguar%20%28ROM%29/", "", ['JAG']),
@@ -50,7 +51,7 @@ systemLinks = {
         #"gameandwatch": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20%26%20Watch/", ""),
         #"gamegear": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%20Game%20Gear/", "", ['Game Gear', 'GG']),
         #"gb": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy/", "", ['GameBoy', 'GB']),
-        "gba": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/", ".zip", ['GBA']),
+        #"gba": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/", ".zip", ['GBA']),
         #"gbc": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Color/", "", ['GB Color', 'GBC']),
         #"gc": SystemInfo("https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/", "", ['Gamecube', 'GCN', 'GC']),
         #"genesis": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%20Mega%20Drive%20-%20Genesis/", "", ['SEGA Genesis', 'Genesis', 'GEN']),
@@ -58,18 +59,21 @@ systemLinks = {
         #"mame": SystemInfo("https://myrient.erista.me/files/Internet%20Archive/chadmaster/mame-merged/mame-merged/", "", ['ARC']),
         #"mastersystem": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%20Master%20System%20-%20Mark%20III/", "", ['Master System', 'SMS']),
         #"msx": SystemInfo("https://myrient.erista.me/files/No-Intro/Microsoft%20-%20MSX/", "", ['MSX']),
-        #"n3ds": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Decrypted)/", "", ['3DS']),
-        #"n64": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%2064%20(ByteSwapped)/", "", ['N64']),
-        #"nds": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/", "", ['DS', 'NDS']),
-        #"neogeo": SystemInfo(None, ""),
-        #"neogeocd": SystemInfo("https://myrient.erista.me/files/Redump/SNK%20-%20Neo%20Geo%20CD/", "", ['NEO-GEO CD', 'NGCD']),
-        #"ngpc": SystemInfo("https://myrient.erista.me/files/No-Intro/SNK%20-%20NeoGeo%20Pocket%20Color/", "", ['Neo Geo Pocket Color', 'NGPC'])
-        "nes": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headered)/", ".nes", ['NES']),
-        #"pc88": SystemInfo("https://myrient.erista.me/files/Internet%20Archive/who_lee/retroachievements_collection_v5/PC-8000-8800/", "", ['PC88']),
-        #"pc98": SystemInfo("https://myrient.erista.me/files/Redump/NEC%20-%20PC-98%20series/", "", ['PC98']),
-        "pcfx": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/NEC/PC-FX/Games/", ".img", ['PC-FX', 'PCFX']),
-        #"pokemini": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Pokemon%20Mini/", "", ['PMINI'])
-        "ps2": SystemInfo("https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%202/", ".iso", ['PlayStation 2']),
+        "n3ds": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Decrypted)/", ".3ds", ['3DS'], True),
+        "n64": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%2064%20(ByteSwapped)/", ".n64", ['N64'], True),
+        "nds": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/", ".nds", ['DS', 'NDS'], True),
+        "neogeo": SystemInfo("https://myrient.erista.me/files/TOSEC/SNK/Neo-Geo/Games/", ".neo", ['NG'], True),
+        "neogeocd": SystemInfo("https://myrient.erista.me/files/Redump/SNK%20-%20Neo%20Geo%20CD/", ".cue", ['NEO-GEO CD', 'NGCD'], False),
+        "nes": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headered)/", ".nes", ['NES'], True),
+        "ngp": SystemInfo("https://myrient.erista.me/files/No-Intro/SNK%20-%20NeoGeo%20Pocket/", ".ngp", ['NGP'], True),
+        "ngpc": SystemInfo("https://myrient.erista.me/files/No-Intro/SNK%20-%20NeoGeo%20Pocket%20Color/", ".ngc", ['Neo Geo Pocket Color', 'NGPC']),
+        "odyssey2": SystemInfo("https://myrient.erista.me/files/No-Intro/Magnavox%20-%20Odyssey%202/", ".bin", ['O2'], True),
+        "pc": SystemInfo("https://myrient.erista.me/files/Redump/IBM%20-%20PC%20compatible/", ".cue", ['PC'], True),
+        "pc88": SystemInfo("https://myrient.erista.me/files/Internet%20Archive/who_lee/retroachievements_collection_v5/PC-8000-8800/", ".d88", ['PC88'], False),
+        #"pc98": SystemInfo("https://myrient.erista.me/files/Redump/NEC%20-%20PC-98%20series/", ".zip", ['PC98']),
+        "pcfx": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/NEC/PC-FX/Games/", ".img", ['PC-FX', 'PCFX'], False),
+        #"pokemini": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Pokemon%20Mini/", ".zip", ['PMINI']),
+        "ps2": SystemInfo("https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%202/", ".iso", ['PlayStation 2'], False),
         #"ps3": SystemInfo("https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Content)/", "", ['PS3']),
         #"psp": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/Sony/PlayStation%20Portable/Games/%5BISO%5D/", "", ['PSP Eboots', 'PSP Eboot', 'PlayStation Portable', 'PSP']),
         #"psvita": SystemInfo("https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Content)/", "", ['VITA']),
@@ -79,9 +83,9 @@ systemLinks = {
         #"segacd": SystemInfo("https://myrient.erista.me/files/Redump/Sega%20-%20Mega%20CD%20%26%20Sega%20CD/", "", ['SEGA CD', 'SegaCD']),
         #"sg-1000": SystemInfo("https://myrient.erista.me/files/Internet%20Archive/who_lee/retroachievements_collection_v5/SG-1000/", "", ['SG1K']),
         #"supergrafx": SystemInfo("https://myrient.erista.me/files/No-Intro/NEC%20-%20PC%20Engine%20SuperGrafx/", "", ['SGFX']),
-        "snes": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/", ".zip", ['SNES']),
-        "tg16": SystemInfo("https://myrient.erista.me/files/No-Intro/NEC%20-%20PC%20Engine%20-%20TurboGrafx-16/", ".zip", ['TurboGrafx-16', 'TG16']),
-        "tg-cd": SystemInfo("https://myrient.erista.me/files/Redump/NEC%20-%20PC%20Engine%20CD%20&%20TurboGrafx%20CD/", ".zip", ['TurboGrafx-CD', 'TGCD']),
+        #"snes": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/", ".zip", ['SNES']),
+        #"tg16": SystemInfo("https://myrient.erista.me/files/No-Intro/NEC%20-%20PC%20Engine%20-%20TurboGrafx-16/", ".zip", ['TurboGrafx-16', 'TG16']),
+        #"tg-cd": SystemInfo("https://myrient.erista.me/files/Redump/NEC%20-%20PC%20Engine%20CD%20&%20TurboGrafx%20CD/", ".zip", ['TurboGrafx-CD', 'TGCD']),
         #"vectrex": SystemInfo("https://myrient.erista.me/files/No-Intro/GCE%20-%20Vectrex/", ""),
         #"vic20": SystemInfo("https://myrient.erista.me/files/No-Intro/Commodore%20-%20VIC-20/", ""),
         #"virtualboy": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Virtual%20Boy/", "", ['VB']),
