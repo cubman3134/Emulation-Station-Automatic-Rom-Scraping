@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/EmulationStationScripts/env1/Lib/site-packages
+/EmulationStationScripts/env1

@@ -39,26 +39,26 @@ itemsToScrape = [LocalFileScrapingInfo("RomHacks", "../../settings/RomHackFiles"
 #all files at https://myrient.erista.me/files/No-Intro/
 systemLinks = {
         "3do": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/3DO/3DO%20Interactive%20Multiplayer/Games/", ".bin", ['3DO'], False),
-        #"atari2600": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%202600/", ".zip", ['2600'], True),
-        #"atari5200": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%205200/", ""),
-        #"atari7800": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%207800/", "", ['7800']),
-        #"atarijaguar": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%20Jaguar%20%28ROM%29/", "", ['JAG']),
-        #"atarijaguarcd": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/Atari/Jaguar%20CD/Games/", ""),
-        #"atarilynx": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%20Lynx%20%28LYX%29/", "", ['LYNX']),
-        #"c64": SystemInfo("https://myrient.erista.me/files/No-Intro/Commodore%20-%20Commodore%2064/", ""),
-        #"dreamcast": SystemInfo("https://myrient.erista.me/files/Redump/Sega%20-%20Dreamcast/", "", ['EGA Dreamcast', 'DC']),
-        #"famicom": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20(FDS)/", "", ['FDS']),
-        #"gameandwatch": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20%26%20Watch/", ""),
-        #"gamegear": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%20Game%20Gear/", "", ['Game Gear', 'GG']),
-        #"gb": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy/", "", ['GameBoy', 'GB']),
-        #"gba": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/", ".zip", ['GBA']),
-        #"gbc": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Color/", "", ['GB Color', 'GBC']),
-        #"gc": SystemInfo("https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/", "", ['Gamecube', 'GCN', 'GC']),
-        #"genesis": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%20Mega%20Drive%20-%20Genesis/", "", ['SEGA Genesis', 'Genesis', 'GEN']),
-        #"intellivision": SystemInfo("https://myrient.erista.me/files/No-Intro/Mattel%20-%20Intellivision/", ""),
-        #"mame": SystemInfo("https://myrient.erista.me/files/Internet%20Archive/chadmaster/mame-merged/mame-merged/", "", ['ARC']),
-        #"mastersystem": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%20Master%20System%20-%20Mark%20III/", "", ['Master System', 'SMS']),
-        #"msx": SystemInfo("https://myrient.erista.me/files/No-Intro/Microsoft%20-%20MSX/", "", ['MSX']),
+        "atari2600": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%202600/", ".zip", ['2600'], True),
+        "atari5200": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%205200/", "", ['5200'], True),
+        "atari7800": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%207800/", "", ['7800'], True),
+        "atarijaguar": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%20Jaguar%20%28ROM%29/", "", ['JAG'], True),
+        "atarijaguarcd": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/Atari/Jaguar%20CD/Games/", "", [], False),
+        "atarilynx": SystemInfo("https://myrient.erista.me/files/No-Intro/Atari%20-%20Atari%20Lynx%20%28LYX%29/", "", ['LYNX'], True),
+        "c64": SystemInfo("https://myrient.erista.me/files/No-Intro/Commodore%20-%20Commodore%2064/", "", [], True),
+        "dreamcast": SystemInfo("https://myrient.erista.me/files/Redump/Sega%20-%20Dreamcast/", "", ['EGA Dreamcast', 'DC'], True),
+        "famicom": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20(FDS)/", "", ['FDS'], True),
+        "gameandwatch": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20%26%20Watch/", "", [], True),
+        "gamegear": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%20Game%20Gear/", "", ['Game Gear', 'GG'], True),
+        "gb": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy/", "", ['GameBoy', 'GB'], True),
+        "gba": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/", ".zip", ['GBA'], True),
+        "gbc": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Color/", "", ['GB Color', 'GBC'], True),
+        "gc": SystemInfo("https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/", "", ['Gamecube', 'GCN', 'GC'], True),
+        "genesis": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%20Mega%20Drive%20-%20Genesis/", ".md", ['SEGA Genesis', 'Genesis', 'GEN'], True),
+        "intellivision": SystemInfo("https://myrient.erista.me/files/No-Intro/Mattel%20-%20Intellivision/", "", [], True),
+        "mame": SystemInfo("https://myrient.erista.me/files/Internet%20Archive/chadmaster/mame-merged/mame-merged/", "", ['ARC'], True),
+        "mastersystem": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%20Master%20System%20-%20Mark%20III/", "", ['Master System', 'SMS'], True),
+        "msx": SystemInfo("https://myrient.erista.me/files/No-Intro/Microsoft%20-%20MSX/", "", ['MSX'], True),
         "n3ds": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Decrypted)/", ".3ds", ['3DS'], True),
         "n64": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%2064%20(ByteSwapped)/", ".n64", ['N64'], True),
         "nds": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/", ".nds", ['DS', 'NDS'], True),
@@ -66,36 +66,36 @@ systemLinks = {
         "neogeocd": SystemInfo("https://myrient.erista.me/files/Redump/SNK%20-%20Neo%20Geo%20CD/", ".cue", ['NEO-GEO CD', 'NGCD'], False),
         "nes": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headered)/", ".nes", ['NES'], True),
         "ngp": SystemInfo("https://myrient.erista.me/files/No-Intro/SNK%20-%20NeoGeo%20Pocket/", ".ngp", ['NGP'], True),
-        "ngpc": SystemInfo("https://myrient.erista.me/files/No-Intro/SNK%20-%20NeoGeo%20Pocket%20Color/", ".ngc", ['Neo Geo Pocket Color', 'NGPC']),
+        "ngpc": SystemInfo("https://myrient.erista.me/files/No-Intro/SNK%20-%20NeoGeo%20Pocket%20Color/", ".ngc", ['Neo Geo Pocket Color', 'NGPC'], True),
         "odyssey2": SystemInfo("https://myrient.erista.me/files/No-Intro/Magnavox%20-%20Odyssey%202/", ".bin", ['O2'], True),
         "pc": SystemInfo("https://myrient.erista.me/files/Redump/IBM%20-%20PC%20compatible/", ".cue", ['PC'], True),
         "pc88": SystemInfo("https://myrient.erista.me/files/Internet%20Archive/who_lee/retroachievements_collection_v5/PC-8000-8800/", ".d88", ['PC88'], False),
-        #"pc98": SystemInfo("https://myrient.erista.me/files/Redump/NEC%20-%20PC-98%20series/", ".zip", ['PC98']),
+        "pc98": SystemInfo("https://myrient.erista.me/files/Redump/NEC%20-%20PC-98%20series/", ".zip", ['PC98'], True),
         "pcfx": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/NEC/PC-FX/Games/", ".img", ['PC-FX', 'PCFX'], False),
-        #"pokemini": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Pokemon%20Mini/", ".zip", ['PMINI']),
+        "pokemini": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Pokemon%20Mini/", ".zip", ['PMINI'], True),
         "ps2": SystemInfo("https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%202/", ".iso", ['PlayStation 2'], False),
-        #"ps3": SystemInfo("https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Content)/", "", ['PS3']),
-        #"psp": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/Sony/PlayStation%20Portable/Games/%5BISO%5D/", "", ['PSP Eboots', 'PSP Eboot', 'PlayStation Portable', 'PSP']),
-        #"psvita": SystemInfo("https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Content)/", "", ['VITA']),
-        #"psx": SystemInfo("https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation/", "", ['PlayStation', 'PSX']),
-        #"saturn": SystemInfo("https://myrient.erista.me/files/Redump/Sega%20-%20Saturn/", "", ['SEGA Saturn', 'Saturn', 'SAT']),
-        #"sega32x": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%2032X/", "", ['SEGA 32x', '32X']),
-        #"segacd": SystemInfo("https://myrient.erista.me/files/Redump/Sega%20-%20Mega%20CD%20%26%20Sega%20CD/", "", ['SEGA CD', 'SegaCD']),
-        #"sg-1000": SystemInfo("https://myrient.erista.me/files/Internet%20Archive/who_lee/retroachievements_collection_v5/SG-1000/", "", ['SG1K']),
-        #"supergrafx": SystemInfo("https://myrient.erista.me/files/No-Intro/NEC%20-%20PC%20Engine%20SuperGrafx/", "", ['SGFX']),
-        #"snes": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/", ".zip", ['SNES']),
-        #"tg16": SystemInfo("https://myrient.erista.me/files/No-Intro/NEC%20-%20PC%20Engine%20-%20TurboGrafx-16/", ".zip", ['TurboGrafx-16', 'TG16']),
-        #"tg-cd": SystemInfo("https://myrient.erista.me/files/Redump/NEC%20-%20PC%20Engine%20CD%20&%20TurboGrafx%20CD/", ".zip", ['TurboGrafx-CD', 'TGCD']),
-        #"vectrex": SystemInfo("https://myrient.erista.me/files/No-Intro/GCE%20-%20Vectrex/", ""),
-        #"vic20": SystemInfo("https://myrient.erista.me/files/No-Intro/Commodore%20-%20VIC-20/", ""),
-        #"virtualboy": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Virtual%20Boy/", "", ['VB']),
-        #"wii": SystemInfo("https://myrient.erista.me/files/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/", "", ['WII']),
+        "ps3": SystemInfo("https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Content)/", "", ['PS3'], False),
+        "psp": SystemInfo("https://myrient.erista.me/files/TOSEC-ISO/Sony/PlayStation%20Portable/Games/%5BISO%5D/", "", ['PSP Eboots', 'PSP Eboot', 'PlayStation Portable', 'PSP'], True),
+        "psvita": SystemInfo("https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Content)/", ".psvita", ['VITA'], False),
+        "psx": SystemInfo("https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation/", "", ['PlayStation', 'PSX'], True),
+        "saturn": SystemInfo("https://myrient.erista.me/files/Redump/Sega%20-%20Saturn/", "", ['SEGA Saturn', 'Saturn', 'SAT'], True),
+        "sega32x": SystemInfo("https://myrient.erista.me/files/No-Intro/Sega%20-%2032X/", "", ['SEGA 32x', '32X'], True),
+        "segacd": SystemInfo("https://myrient.erista.me/files/Redump/Sega%20-%20Mega%20CD%20%26%20Sega%20CD/", ".bin", ['SEGA CD', 'SegaCD'], True),
+        "sg-1000": SystemInfo("https://myrient.erista.me/files/Internet%20Archive/who_lee/retroachievements_collection_v5/SG-1000/", "", ['SG1K'], True),
+        "supergrafx": SystemInfo("https://myrient.erista.me/files/No-Intro/NEC%20-%20PC%20Engine%20SuperGrafx/", "", ['SGFX'], True),
+        "snes": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/", ".zip", ['SNES'], True),
+        "tg16": SystemInfo("https://myrient.erista.me/files/No-Intro/NEC%20-%20PC%20Engine%20-%20TurboGrafx-16/", ".zip", ['TurboGrafx-16', 'TG16'], True),
+        "tg-cd": SystemInfo("https://myrient.erista.me/files/Redump/NEC%20-%20PC%20Engine%20CD%20&%20TurboGrafx%20CD/", ".zip", ['TurboGrafx-CD', 'TGCD'], True),
+        "vectrex": SystemInfo("https://myrient.erista.me/files/No-Intro/GCE%20-%20Vectrex/", "", [], True),
+        "vic20": SystemInfo("https://myrient.erista.me/files/No-Intro/Commodore%20-%20VIC-20/", "", [], True),
+        "virtualboy": SystemInfo("https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Virtual%20Boy/", "", ['VB'], True),
+        "wii": SystemInfo("https://myrient.erista.me/files/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/", ".rvz", ['WII'], True),
         #"windows": SystemInfo("", "", ['Windows', 'PC']),
-        #"wonderswan": SystemInfo("https://myrient.erista.me/files/No-Intro/Bandai%20-%20WonderSwan/", "", ['WonderSwan', 'WS']),
-        #"wonderswancolor": SystemInfo("https://myrient.erista.me/files/No-Intro/Bandai%20-%20WonderSwan%20Color/", "", ['']),
-        #"x68000": SystemInfo("https://myrient.erista.me/files/TOSEC/Sharp/X68000/Games/%5BDIM%5D/", "", ['X68K']),
-        #"xbox": SystemInfo("https://myrient.erista.me/files/Redump/Microsoft%20-%20Xbox/", "", ['XBOX']),
-        #"xbox360": SystemInfo("https://myrient.erista.me/files/No-Intro/Microsoft%20-%20Xbox%20360%20(Digital)/", "", ['XB360']),
+        "wonderswan": SystemInfo("https://myrient.erista.me/files/No-Intro/Bandai%20-%20WonderSwan/", "", ['WonderSwan', 'WS'], True),
+        "wonderswancolor": SystemInfo("https://myrient.erista.me/files/No-Intro/Bandai%20-%20WonderSwan%20Color/", "", [''], True),
+        "x68000": SystemInfo("https://myrient.erista.me/files/TOSEC/Sharp/X68000/Games/%5BDIM%5D/", ".dim", ['X68K'], True),
+        "xbox": SystemInfo("https://myrient.erista.me/files/Redump/Microsoft%20-%20Xbox/", ".iso", ['XBOX'], False),
+        "xbox360": SystemInfo("https://myrient.erista.me/files/No-Intro/Microsoft%20-%20Xbox%20360%20(Digital)/", ".iso", ['XB360'], False),
     }
 
 def GetSystemLinkKeyFromSystemName(systemName):
@@ -107,6 +107,8 @@ def GetSystemLinkKeyFromSystemName(systemName):
     return None
 
 currentDirectory = os.path.dirname(os.path.abspath(sys.argv[0]))
+if __debug__:
+    currentDirectory = "C:/Users/cubma/ES-DE/scripts/startup"
 settingsFilePath = os.path.abspath(os.path.join(currentDirectory, '../../settings/es_settings.xml'))
 romsPath = ''
 f = open('c:\\temp\\logging.txt', 'a')
@@ -130,6 +132,8 @@ f.close()
 
 for itemToScrape in itemsToScrape:
     folderPath = os.path.abspath(os.path.join(currentDirectory, itemToScrape.directoryPath))
+    if not Path(folderPath).is_dir():
+        continue
     for filePath in os.listdir(folderPath):
         scrapeFileName = Path(filePath).stem
         scrapeSite = scrapeFileName.split('_')[0]
